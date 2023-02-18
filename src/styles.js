@@ -4,12 +4,15 @@ export const AppHome = styled.div`
   font-family: "Apercu Arabic Pro";
   text-align: center;
   background-color: #fafafa;
+  display: flex;
   height: 100vh;
   width: 100vw;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 `;
 
 export const Pinkhappy1 = styled.div`
@@ -22,6 +25,7 @@ export const Pinkhappy1 = styled.div`
   border-radius: 50%;
   display: inline-block;
   z-index: 1;
+  overflow: hidden;
 `;
 
 export const WorldBackground = styled.div`
@@ -32,12 +36,28 @@ export const WorldBackground = styled.div`
   height: 100%;
   overflow: hidden;
   z-index: 0;
+  @media (max-width: 880px) {
+    right: -20%;
+    top: -10%;
+    height: 80%;
+    border-radius: 50%;
+  }
+  @media (max-width: 677px) {
+    right: -30%;
+    top: -10%;
+    height: 75%;
+    border-radius: 50%;
+  }
 `;
 
 export const Pinkhappy2 = styled(Pinkhappy1)`
   position: absolute;
   left: 70%;
   top: 50%;
+  @media (max-width: 677px) {
+    left: 70%;
+    top: 50%;
+  }
 `;
 
 export const FeedbackConteiner = styled.div`
@@ -53,6 +73,17 @@ export const FeedbackConteiner = styled.div`
   width: 40%;
   background: transparent;
   border: 0;
+  @media (max-width: 1175px) {
+    width: 55%;
+  }
+  @media (max-width: 621px) {
+    width: 70%;
+    left: 8%;
+  }
+  @media (max-width: 511px) {
+    width: 84%;
+    left: 8%;
+  }
   input {
     position: relative;
     align-self: left;
@@ -68,6 +99,7 @@ export const FeedbackConteiner = styled.div`
     font-weight: 400;
     font-size: 14px;
     line-height: 180%;
+    z-index: 2;
   }
   form {
     display: flex;
@@ -105,6 +137,7 @@ export const TextArea = styled.textarea`
   font-weight: 400;
   font-size: 14px;
   line-height: 180%;
+  z-index: 2;
 `;
 
 export const Button = styled.button`
