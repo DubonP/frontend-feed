@@ -1,10 +1,9 @@
 import React from "react";
 import { FeedbackForm } from "./features/feedback-form";
-
-import "./App.css";
+import { AppHome } from "./styles";
 
 function App() {
-  return <div className="App">{<FeedbackForm />}</div>;
+  return <AppHome className="App">{<FeedbackForm />}</AppHome>;
 }
 
 export default App;

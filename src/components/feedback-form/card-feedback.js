@@ -1,5 +1,14 @@
 import { useState } from "react";
 import { feedbackAPI } from "../../API/feedback-form";
+import {
+  FeedbackConteiner,
+  Button,
+  Pinkhappy1,
+  Pinkhappy2,
+  TextArea,
+  WorldBackground,
+} from "../../styles";
+import map from "../../img/map.png";
 
 export function CardFeedback() {
   const [name, setName] = useState("");
@@ -35,53 +44,45 @@ export function CardFeedback() {
 
   return (
     <div className="card">
-      <div className="card-body">
-        <h5 className="card-title">Feedback</h5>
+      <Pinkhappy1 />
+      <Pinkhappy2 />
+      <WorldBackground>
+        <img src={map} alt="map" />
+      </WorldBackground>
+      <FeedbackConteiner>
+        <h3>Reach out to us!</h3>
         <form onSubmit={postFeedback}>
-          <div className="mb-3">
-            <label htmlFor="name" className="form-label">
-              Name
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              id="name"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input
-              type="email"
-              className="form-control"
-              id="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="message" className="form-label">
-              Message
-            </label>
-            <textarea
-              className="form-control"
-              id="message"
-              rows="3"
-              required
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            ></textarea>
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
+          <input
+            type="text"
+            className="form-control"
+            id="name"
+            placeholder="Your name*"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <input
+            type="email"
+            id="email"
+            required
+            placeholder="Your e-mail*"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <TextArea
+            id="message"
+            rows="3"
+            required
+            placeholder="Your message*"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          ></TextArea>
+
+          <Button type="submit">Send message</Button>
         </form>
-      </div>
+      </FeedbackConteiner>
     </div>
   );
 }
