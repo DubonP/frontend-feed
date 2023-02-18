@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { postFeedback } from "../../event/feedback-form";
 
-export const feedbackFormSlice = createSlice({
+const initialState = {
+  name: "",
+  email: "",
+  message: "",
+  feedback: [],
+};
+
+export const feedbackSlice = createSlice({
   name: "feedbackForm",
-  initialState: {
-    name: "",
-    email: "",
-    message: "",
-    feedbackSubmitted: false,
-  },
+  initialState,
   reducers: {
     setName: (state, action) => {
       state.name = action.payload;
@@ -19,18 +22,17 @@ export const feedbackFormSlice = createSlice({
       state.message = action.payload;
     },
     submitFeedback: (state) => {
-      state.feedbackSubmitted = true;
+      state.feedback.push({
+        name: state.name,
+        email: state.email,
+        message: state.message,
+      });
+      postFeedback(state.feedback);
     },
   },
 });
 
 export const { setName, setEmail, setMessage, submitFeedback } =
-  feedbackFormSlice.actions;
+  feedbackSlice.actions;
 
-export const selectName = (state) => state.feedbackForm.name;
-export const selectEmail = (state) => state.feedbackForm.email;
-export const selectMessage = (state) => state.feedbackForm.message;
-export const selectFeedbackSubmitted = (state) =>
-  state.feedbackForm.feedbackSubmitted;
-
-export default feedbackFormSlice.reducer;
+export default feedbackSlice.reducer;
