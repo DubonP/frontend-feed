@@ -1,15 +1,10 @@
 import { feedbackAPI } from "../API/feedback-form";
 
-export const postFeedback = (feedback) => {
-  fetch(`${feedbackAPI.baseURL}/register`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(feedback),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-    });
-};
+export function postFeedback(e) {
+  e.preventDefault();
+  feedbackAPI.baseURL.post("/register", {
+    name: e.name,
+    email: e.email,
+    message: e.message,
+  });
+}

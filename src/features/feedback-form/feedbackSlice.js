@@ -5,7 +5,6 @@ const initialState = {
   name: "",
   email: "",
   message: "",
-  feedback: [],
 };
 
 export const feedbackSlice = createSlice({
@@ -22,12 +21,7 @@ export const feedbackSlice = createSlice({
       state.message = action.payload;
     },
     submitFeedback: (state) => {
-      state.feedback.push({
-        name: state.name,
-        email: state.email,
-        message: state.message,
-      });
-      postFeedback(state.feedback);
+      postFeedback(state);
     },
   },
 });

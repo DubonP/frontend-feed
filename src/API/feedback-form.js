@@ -1,3 +1,3 @@
 export const feedbackAPI = {
-  baseURL: "https://wakeful-time-production.up.railway.app/api",
+  baseURL: "https://kindly-bait-production.up.railway.app/api",
 };
