@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { postFeedback } from "../../event/feedback-form";
 
 const initialState = {
   name: "",
@@ -19,9 +18,6 @@ export const feedbackSlice = createSlice({
     },
     setMessage: (state, action) => {
       state.message = action.payload;
-    },
-    submitFeedback: (state) => {
-      postFeedback(state);
     },
   },
 });
